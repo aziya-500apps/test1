@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>callback</title>
+</head>
+<body>
+    <h1>CallBack Function</h1>
+    <script>
+
+        let order =(call)=>{
+            console.log("1st call");
+            call()
+        };
+        let production=()=>{
+            console.log("2nd call")
+            alert("Hello World")
+        }
+        order(production)
+    </script>
+    
+</body>
+</html>
+
