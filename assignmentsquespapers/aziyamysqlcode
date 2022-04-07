@@ -1,0 +1,529 @@
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+select * from employee
+
+
+Output:
+
+ename	empid	empaddress
+aziya	1	TS
+ruksana	2	AP
+amrutha	3	AP
+anusha	4	AP
+=================================
+where empaddress="AP"
+
+Output:
+
+ename	empid	empaddress
+ruksana	2	AP
+amrutha	3	AP
+anusha	        4	AP
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+select * from employee
+
+
+where empaddress="TS" OR empid=002;
+
+Output:
+
+ename	empid	empaddress
+aziya	1	TS
+ruksana	2	AP
++++++++++++++++++++++++++++++++++++++++++
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+select * from employee
+
+
+where empaddress="TS" AND empid=001;
+
+
+Output:
+
+ename	empid	empaddress
+aziya	1	TS
+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+select * from employee
+
+
+order by ename
+
+
+Output:
+
+ename	empid	empaddress
+amrutha	3	AP
+anusha	4	AP
+aziya	1	TS
+ruksana	2	AP
+
+++++++++++++++++++++++++++++++++++++++++
+
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+select * from employee
+
+
+order by ename descOutput:
+
+ename	empid	empaddress
+ruksana	2	AP
+aziya	1	TS
+anusha	4	AP
+amrutha	3	AP
+========================================
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+
+
+insert into employee(ename,empid,empaddress) values('subhash',005,'TN'),('naveen',006,'AP'),("srikanth",007,'AP');
+select * from employee;
+
+Output:
+
+ename	empid	empaddress
+aziya	1	TS
+ruksana	2	AP
+amrutha	3	AP
+anusha	4	AP
+subhash	5	TN
+naveen	    6	AP
+srikanth	7	AP
++++++++++++++++++++++++++++++++++++++++
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+
+
+insert into employee(ename,empid,empaddress) values('subhash',005,'TN'),('naveen',006,'AP'),
+("srikanth",007,'AP');
+
+
+
+update employee
+set ename="mamatha",empaddress="AP"
+where empid=1;
+
+select *from employee;
+
+Output:
+
+ename	empid	empaddress
+mamatha	1	AP
+ruksana	2	AP
+amrutha	3	AP
+anusha	4	AP
+subhash	5	TN
+naveen	6	AP
+srikanth	7	AProm employee;
+++++++++++++++++++++++++++++++++++++
+create table employee(ename char(30),empid int,empaddress varchar(40));
+
+insert into employee(ename,empid,empaddress)values('aziya',001,'TS'),('ruksana',002,'AP')
+                                 ,('amrutha',003,'AP'),('anusha',004,'AP');
+
+
+
+insert into employee(ename,empid,empaddress) values('subhash',005,'TN'),('naveen',006,'AP'),
+("srikanth",007,'AP');
+
+
+
+update employee
+set ename="mamatha",empaddress="AP"
+where empid=1;
+
+delete from employee
+ where ename="srikanth";
+select * from employee;
+
+
+
+Output:
+
+ename	empid	empaddress
+mamatha	1	AP
+ruksana	2	AP
+amrutha	3	AP
+anusha	4	AP
+subhash	5	TN
+naveen	6	AP
+++++++++++++++++++++++++++++++++++
+create table employee(ename char(30),empid int,address varchar(40),sno int);
+
+insert into employee(ename,empid,address,sno)values('aziya',001,'TS',1),('ruksana',002,'AP',2)
+                                 ,('amrutha',003,'AP',3),('anusha',004,'AP',4);
+
+
+create table student(email varchar(50),rollno int,address varchar(40));
+
+insert into student(email,rollno,address)values('aziya@gmail.com        ',01,'TS'),('ruksana@gmail.com',02,'AP')
+                                 ,('amrutha@gmail.com',03,'AP'),('anusha@gmail.com',04,'AP');
+
+
+
+select * from employee;
+select * from student;
+
+
+select employee.ename,student.email,employee.sno
+from employee
+inner join student
+on employee.address=student.address;
+
+
+Output:
+
+ename	empid	address	sno
+aziya	1	TS	1
+ruksana	2	AP	2
+amrutha	3	AP	3
+anusha	4	AP	4
+email	rollno	address
+aziya@gmail.com        	1	TS
+ruksana@gmail.com	2	AP
+amrutha@gmail.com	3	AP
+anusha@gmail.com	4	AP
+ename	email	sno
+aziya	aziya@gmail.com        	1
+anusha	ruksana@gmail.com	4
+amrutha	ruksana@gmail.com	3
+ruksana	ruksana@gmail.com	2
+anusha	amrutha@gmail.com	4
+amrutha	amrutha@gmail.com	3
+ruksana	amrutha@gmail.com	2
+anusha	anusha@gmail.com	4
+amrutha	anusha@gmail.com	3
+ruksana	anusha@gmail.com	2
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+<template>
+
+<div>
+
+<h2>This is Rest APIs</h2>
+
+<img src="https://i.ytimg.com/vi/66fr4C3yVZo/maxresdefault.jpg" width="500px" height="400px"><br><br><br>
+
+
+<div>
+
+<b-form-input v-model="text" placeholder="Enter your name"></b-form-input><br><br>
+
+</div>
+
+
+<b-button @click="getData()">Click Me!</b-button><br><br>
+
+
+<div>
+
+{{ searchData.data }}
+
+</div>
+
+<table align="center">
+
+<thead>
+
+<tr>
+
+<th>TrainName</th>
+
+
+<th>TrainNumber</th>
+
+
+<th>TrainFrom</th>
+
+
+<th>TrainTo</th>
+
+<th>date</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr v-for="user in users" :key="user.id">
+
+<td>{{ user.TrainName }}</td>
+
+
+<td>{{ user.TrainNumber }}</td>
+
+
+<td>{{ user.TrainFrom }}</td>
+
+
+<td>{{ user.TrainTo }}</td>
+
+
+<td>{{ user.Date }}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</template>
+
+
+<script>
+
+var axios = require("axios").default;
+
+
+export default {
+
+name: "sampleApis",
+
+
+data() {
+
+return {
+
+users: [
+
+{
+
+TrainName: "Godavari",
+
+TrainNumber: "548612",
+
+TrainFrom: "kakinada",
+
+TrainTo: "sullurpeta",
+
+Date: "",
+
+},
+
+
+{
+
+TrainName: "Vishaka",
+
+TrainNumber: "169873",
+
+TrainFrom: "LTT",
+
+TrainTo: "MMR",
+
+Date: "",
+
+},
+
+
+{
+
+TrainName: "Circar",
+
+TrainNumber: "78945",
+
+TrainFrom: "Chennai",
+
+TrainTo: "Kakinada",
+
+Date: "",
+
+},
+
+
+{
+
+TrainName: "Bhuvaneshwar",
+
+TrainNumber: "12546",
+
+TrainFrom: "Vishakapatnam",
+
+TrainTo: "Bhuvaneshwar",
+
+Date: "",
+
+},
+
+
+{
+
+TrainName: "Coramandal",
+
+TrainNumber: "45612",
+
+TrainFrom: "Tanuku",
+
+TrainTo: "Prakasam",
+
+Date: "",
+
+},
+
+
+{
+
+TrainName: "Charminar",
+
+TrainNumber: "798466",
+
+TrainFrom: "Chennai",
+
+TrainTo: "Hyderabad",
+
+Date: "",
+
+},
+
+],
+
+
+options: {
+
+method: "POST",
+
+
+url: "https://trains.p.rapidapi.com/",
+
+
+headers: {
+
+"content-type": "application/json",
+
+
+"X-RapidAPI-Host": "trains.p.rapidapi.com",
+
+
+"X-RapidAPI-Key":
+
+"0030c715ecmsh58180c0530cc6e6p188880jsncda365dc0d9f",
+
+},
+
+
+data: { search: "" },
+
+},
+
+
+text: "",
+
+
+searchData: {},
+
+};
+
+},
+
+
+methods: {
+
+async getData() {
+
+this.options.data.search = this.text;
+
+
+this.searchData = await axios.request(this.options);
+
+},
+
+},
+
+};
+
+</script>
+
+<style scoped>
+
+table {
+
+font-family: arial;
+
+
+border-collapse: collapse;
+
+
+width: 10%;
+
+
+text-align: center;
+
+}
+
+
+td,
+
+th {
+
+border: 3px solid #dddddd;
+
+
+text-align: center;
+
+
+padding: 8px;
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
