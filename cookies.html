@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookies</title>
+</head>
+<body>
+    <form name= "myform" onsubmit="display()">
+        <label for="mail">Email</label><br>
+        <input type="text" name="mail" id="mail" required><br>
+        <label for="password">password</label><br>
+        <input type="password" name="password" id="password" required><br>
+        <button onclick="createCookie()" >submit</button>
+    </form>
+    <script>
+    function display(){
+        document.write(document.myform.mail.value + "<br>" + document.myform.password.value);
+    }
+    function createCookie(mail,psw){
+        let email =document.getElementById('mail');
+        let password = document.getElementById('password');
+        today = new Date();
+        var expire = new Date();
+        expire.setTime(today.getTime() + 3600000*24*15);
+        document.cookie = "mail="+email.value+";path=/" + ";expires="+expire.toUTCString();
+        document.cookie = "password="+encodeURI(password.value)+";path=/" + ";expires="+expire.toUTCString();
+    }
+    window.onload = function(){
+        var gmail = document.getElementById('mail').value;
+        var pass =document.getElementById('password').value;
+        document.getElementById('mail').value = gmail;
+        document.getElementById('password').value = pass;
+}
+</script>
+</body>
+</html>
