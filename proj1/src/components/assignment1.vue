@@ -2,10 +2,9 @@
     <div>
         
     <b-table striped hover :items="product" :fields=fields></b-table>
-    <form formname="form1">
-            new product:<input type="text" id="id1" >
-        </form>
-    <button @click="add()"></button>
+    <b-form-input v-model="empty" placeholder="enter" required> </b-form-input>
+    <b-button @click="add">add</b-button>
+     </div>
   
 </template>
 
@@ -20,11 +19,12 @@
           { price: "10000"},
           { productcategory:"software" },
           
-        ]
+        ],empty:""
       }
     },
     methods:{
         add(){
+          this.product.push(this.productname=this.empty)
             
 
         }
