@@ -4,6 +4,7 @@
    <pc1 msg="Hello" ref="ref" name="Aziya" number=123456789></pc1>
    <!-- <pc2 :msg="msg" :name="name" :number="number"></pc2>
    <pc3 ref="msg" >{{msg}}</pc3> -->
+   <exam/>
    <button @click="display()">submit</button>
     
   </div>
@@ -13,12 +14,14 @@
 import pc1 from "@/components/pc1.vue"
 // import pc2 from "@/components/pc2.vue"
 // import pc3 from "@/components/pc3.vue"
+import exam from "@/components/assignment1.vue"
 export default {
   name: 'HelloWorld',
   components:{
     pc1,
     // pc2,
     // pc3,
+    exam
   },
   data(){
     return {
